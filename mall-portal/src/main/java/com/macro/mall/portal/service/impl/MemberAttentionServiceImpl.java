@@ -7,13 +7,13 @@ import com.macro.mall.portal.domain.MemberBrandAttention;
 import com.macro.mall.portal.repository.MemberBrandAttentionRepository;
 import com.macro.mall.portal.service.MemberAttentionService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -24,11 +24,11 @@ import java.util.Date;
 public class MemberAttentionServiceImpl implements MemberAttentionService {
     @Value("${mongo.insert.sqlEnable}")
     private Boolean sqlEnable;
-    @Autowired
+    @Resource
     private PmsBrandMapper brandMapper;
-    @Autowired
+    @Resource
     private MemberBrandAttentionRepository memberBrandAttentionRepository;
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
 
     @Override

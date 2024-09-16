@@ -3,9 +3,9 @@ package com.macro.mall.portal;
 import com.macro.mall.portal.dao.PortalProductDao;
 import com.macro.mall.portal.domain.PromotionProduct;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @SpringBootTest
 public class PortalProductDaoTests {
-    @Autowired
+    @Resource
     private PortalProductDao portalProductDao;
     @Test
     public void testGetPromotionProductList(){

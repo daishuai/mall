@@ -5,9 +5,9 @@ import com.macro.mall.model.OmsOrderReturnApply;
 import com.macro.mall.portal.domain.OmsOrderReturnApplyParam;
 import com.macro.mall.portal.service.OmsPortalOrderReturnApplyService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -16,7 +16,7 @@ import java.util.Date;
  */
 @Service
 public class OmsPortalOrderReturnApplyServiceImpl implements OmsPortalOrderReturnApplyService {
-    @Autowired
+    @Resource
     private OmsOrderReturnApplyMapper returnApplyMapper;
     @Override
     public int create(OmsOrderReturnApplyParam returnApply) {

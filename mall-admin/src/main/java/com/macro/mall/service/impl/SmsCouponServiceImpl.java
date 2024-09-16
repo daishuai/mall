@@ -11,9 +11,9 @@ import com.macro.mall.mapper.SmsCouponProductCategoryRelationMapper;
 import com.macro.mall.mapper.SmsCouponProductRelationMapper;
 import com.macro.mall.model.*;
 import com.macro.mall.service.SmsCouponService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,17 +22,17 @@ import java.util.List;
  */
 @Service
 public class SmsCouponServiceImpl implements SmsCouponService {
-    @Autowired
+    @Resource
     private SmsCouponMapper couponMapper;
-    @Autowired
+    @Resource
     private SmsCouponProductRelationMapper productRelationMapper;
-    @Autowired
+    @Resource
     private SmsCouponProductCategoryRelationMapper productCategoryRelationMapper;
-    @Autowired
+    @Resource
     private SmsCouponProductRelationDao productRelationDao;
-    @Autowired
+    @Resource
     private SmsCouponProductCategoryRelationDao productCategoryRelationDao;
-    @Autowired
+    @Resource
     private SmsCouponDao couponDao;
     @Override
     public int create(SmsCouponParam couponParam) {

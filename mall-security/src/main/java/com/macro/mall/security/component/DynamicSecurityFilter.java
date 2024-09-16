@@ -1,7 +1,6 @@
 package com.macro.mall.security.component;
 
 import com.macro.mall.security.config.IgnoreUrlsConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
@@ -10,6 +9,7 @@ import org.springframework.security.web.FilterInvocation;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -20,12 +20,12 @@ import java.io.IOException;
  */
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
 
-    @Autowired
+    @Resource
     private DynamicSecurityMetadataSource dynamicSecurityMetadataSource;
-    @Autowired
+    @Resource
     private IgnoreUrlsConfig ignoreUrlsConfig;
 
-    @Autowired
+    @Resource
     public void setMyAccessDecisionManager(DynamicAccessDecisionManager dynamicAccessDecisionManager) {
         super.setAccessDecisionManager(dynamicAccessDecisionManager);
     }

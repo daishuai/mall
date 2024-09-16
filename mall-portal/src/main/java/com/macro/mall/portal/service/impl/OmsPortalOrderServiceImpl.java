@@ -15,11 +15,11 @@ import com.macro.mall.portal.dao.SmsCouponHistoryDao;
 import com.macro.mall.portal.domain.*;
 import com.macro.mall.portal.service.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
@@ -33,39 +33,39 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
-    @Autowired
+    @Resource
     private OmsCartItemService cartItemService;
-    @Autowired
+    @Resource
     private UmsMemberReceiveAddressService memberReceiveAddressService;
-    @Autowired
+    @Resource
     private UmsMemberCouponService memberCouponService;
-    @Autowired
+    @Resource
     private UmsIntegrationConsumeSettingMapper integrationConsumeSettingMapper;
-    @Autowired
+    @Resource
     private PmsSkuStockMapper skuStockMapper;
-    @Autowired
+    @Resource
     private SmsCouponHistoryDao couponHistoryDao;
-    @Autowired
+    @Resource
     private OmsOrderMapper orderMapper;
-    @Autowired
+    @Resource
     private PortalOrderItemDao orderItemDao;
-    @Autowired
+    @Resource
     private SmsCouponHistoryMapper couponHistoryMapper;
-    @Autowired
+    @Resource
     private RedisService redisService;
     @Value("${redis.key.orderId}")
     private String REDIS_KEY_ORDER_ID;
     @Value("${redis.database}")
     private String REDIS_DATABASE;
-    @Autowired
+    @Resource
     private PortalOrderDao portalOrderDao;
-    @Autowired
+    @Resource
     private OmsOrderSettingMapper orderSettingMapper;
-    @Autowired
+    @Resource
     private OmsOrderItemMapper orderItemMapper;
-    @Autowired
+    @Resource
     private CancelOrderSender cancelOrderSender;
 
     @Override

@@ -6,10 +6,10 @@ import com.macro.mall.model.UmsMemberReceiveAddress;
 import com.macro.mall.model.UmsMemberReceiveAddressExample;
 import com.macro.mall.portal.service.UmsMemberReceiveAddressService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,9 +18,9 @@ import java.util.List;
  */
 @Service
 public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddressService {
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
-    @Autowired
+    @Resource
     private UmsMemberReceiveAddressMapper addressMapper;
     @Override
     public int add(UmsMemberReceiveAddress address) {

@@ -11,10 +11,10 @@ import com.macro.mall.portal.domain.CartPromotionItem;
 import com.macro.mall.portal.service.OmsCartItemService;
 import com.macro.mall.portal.service.OmsPromotionService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,13 +26,13 @@ import java.util.stream.Collectors;
  */
 @Service
 public class OmsCartItemServiceImpl implements OmsCartItemService {
-    @Autowired
+    @Resource
     private OmsCartItemMapper cartItemMapper;
-    @Autowired
+    @Resource
     private PortalProductDao productDao;
-    @Autowired
+    @Resource
     private OmsPromotionService promotionService;
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
 
     @Override

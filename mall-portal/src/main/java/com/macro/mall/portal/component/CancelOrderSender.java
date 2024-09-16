@@ -7,8 +7,9 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessagePostProcessor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * 取消订单消息的发送者
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CancelOrderSender {
     private static final Logger LOGGER = LoggerFactory.getLogger(CancelOrderSender.class);
-    @Autowired
+    @Resource
     private AmqpTemplate amqpTemplate;
 
     public void sendMessage(Long orderId,final long delayTimes){

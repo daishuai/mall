@@ -1,10 +1,11 @@
 package com.macro.mall.portal.config;
 
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
+
+import javax.annotation.Resource;
 
 /**
  * mall-security模块相关配置
@@ -13,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 public class MallSecurityConfig {
 
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
 
     @Bean

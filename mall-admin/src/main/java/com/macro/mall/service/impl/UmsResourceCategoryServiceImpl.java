@@ -4,9 +4,9 @@ import com.macro.mall.mapper.UmsResourceCategoryMapper;
 import com.macro.mall.model.UmsResourceCategory;
 import com.macro.mall.model.UmsResourceCategoryExample;
 import com.macro.mall.service.UmsResourceCategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Service
 public class UmsResourceCategoryServiceImpl implements UmsResourceCategoryService {
-    @Autowired
+    @Resource
     private UmsResourceCategoryMapper resourceCategoryMapper;
 
     @Override

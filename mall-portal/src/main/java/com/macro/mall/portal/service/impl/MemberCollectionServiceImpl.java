@@ -7,12 +7,13 @@ import com.macro.mall.portal.domain.MemberProductCollection;
 import com.macro.mall.portal.repository.MemberProductCollectionRepository;
 import com.macro.mall.portal.service.MemberCollectionService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * 会员收藏Service实现类
@@ -22,11 +23,11 @@ import org.springframework.stereotype.Service;
 public class MemberCollectionServiceImpl implements MemberCollectionService {
     @Value("${mongo.insert.sqlEnable}")
     private Boolean sqlEnable;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private MemberProductCollectionRepository productCollectionRepository;
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
 
     @Override

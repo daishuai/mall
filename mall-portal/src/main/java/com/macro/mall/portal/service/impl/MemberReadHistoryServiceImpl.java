@@ -7,13 +7,13 @@ import com.macro.mall.portal.domain.MemberReadHistory;
 import com.macro.mall.portal.repository.MemberReadHistoryRepository;
 import com.macro.mall.portal.service.MemberReadHistoryService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,11 +27,11 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
 
     @Value("${mongo.insert.sqlEnable}")
     private Boolean sqlEnable;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private MemberReadHistoryRepository memberReadHistoryRepository;
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
     @Override
     public int create(MemberReadHistory memberReadHistory) {

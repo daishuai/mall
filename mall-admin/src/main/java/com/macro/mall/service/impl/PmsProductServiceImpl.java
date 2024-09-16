@@ -12,10 +12,10 @@ import com.macro.mall.model.*;
 import com.macro.mall.service.PmsProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,39 +30,39 @@ import java.util.stream.Collectors;
 @Service
 public class PmsProductServiceImpl implements PmsProductService {
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsProductServiceImpl.class);
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private PmsMemberPriceDao memberPriceDao;
-    @Autowired
+    @Resource
     private PmsMemberPriceMapper memberPriceMapper;
-    @Autowired
+    @Resource
     private PmsProductLadderDao productLadderDao;
-    @Autowired
+    @Resource
     private PmsProductLadderMapper productLadderMapper;
-    @Autowired
+    @Resource
     private PmsProductFullReductionDao productFullReductionDao;
-    @Autowired
+    @Resource
     private PmsProductFullReductionMapper productFullReductionMapper;
-    @Autowired
+    @Resource
     private PmsSkuStockDao skuStockDao;
-    @Autowired
+    @Resource
     private PmsSkuStockMapper skuStockMapper;
-    @Autowired
+    @Resource
     private PmsProductAttributeValueDao productAttributeValueDao;
-    @Autowired
+    @Resource
     private PmsProductAttributeValueMapper productAttributeValueMapper;
-    @Autowired
+    @Resource
     private CmsSubjectProductRelationDao subjectProductRelationDao;
-    @Autowired
+    @Resource
     private CmsSubjectProductRelationMapper subjectProductRelationMapper;
-    @Autowired
+    @Resource
     private CmsPrefrenceAreaProductRelationDao prefrenceAreaProductRelationDao;
-    @Autowired
+    @Resource
     private CmsPrefrenceAreaProductRelationMapper prefrenceAreaProductRelationMapper;
-    @Autowired
+    @Resource
     private PmsProductDao productDao;
-    @Autowired
+    @Resource
     private PmsProductVertifyRecordDao productVertifyRecordDao;
 
     @Override
@@ -100,14 +100,13 @@ public class PmsProductServiceImpl implements PmsProductService {
             PmsSkuStock skuStock = skuStockList.get(i);
             if(StrUtil.isEmpty(skuStock.getSkuCode())){
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-                StringBuilder sb = new StringBuilder();
                 //日期
-                sb.append(sdf.format(new Date()));
-                //四位商品id
-                sb.append(String.format("%04d", productId));
-                //三位索引id
-                sb.append(String.format("%03d", i+1));
-                skuStock.setSkuCode(sb.toString());
+                String sb = sdf.format(new Date()) +
+                        //四位商品id
+                        String.format("%04d", productId) +
+                        //三位索引id
+                        String.format("%03d", i + 1);
+                skuStock.setSkuCode(sb);
             }
         }
     }

@@ -7,9 +7,9 @@ import com.macro.mall.mapper.PmsBrandMapper;
 import com.macro.mall.model.PmsBrand;
 import com.macro.mall.model.PmsBrandExample;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,19 +18,19 @@ import java.util.List;
  */
 @Service
 public class DemoServiceImpl implements DemoService {
-    @Autowired
-    private PmsBrandMapper brandMapper;
+    @Resource
+    private PmsBrandMapper pmsBrandMapper;
 
     @Override
     public List<PmsBrand> listAllBrand() {
-        return brandMapper.selectByExample(new PmsBrandExample());
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override
     public int createBrand(PmsBrandDto pmsBrandDto) {
         PmsBrand pmsBrand = new PmsBrand();
         BeanUtils.copyProperties(pmsBrandDto,pmsBrand);
-        return brandMapper.insertSelective(pmsBrand);
+        return pmsBrandMapper.insertSelective(pmsBrand);
     }
 
     @Override
@@ -38,22 +38,22 @@ public class DemoServiceImpl implements DemoService {
         PmsBrand pmsBrand = new PmsBrand();
         BeanUtils.copyProperties(pmsBrandDto,pmsBrand);
         pmsBrand.setId(id);
-        return brandMapper.updateByPrimaryKeySelective(pmsBrand);
+        return pmsBrandMapper.updateByPrimaryKeySelective(pmsBrand);
     }
 
     @Override
     public int deleteBrand(Long id) {
-        return brandMapper.deleteByPrimaryKey(id);
+        return pmsBrandMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return brandMapper.selectByExample(new PmsBrandExample());
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
-        return brandMapper.selectByPrimaryKey(id);
+        return pmsBrandMapper.selectByPrimaryKey(id);
     }
 }

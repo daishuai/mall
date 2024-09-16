@@ -11,11 +11,12 @@ import com.macro.mall.dto.OssPolicyResult;
 import com.macro.mall.service.OssService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -40,7 +41,7 @@ public class OssServiceImpl implements OssService {
 	@Value("${aliyun.oss.dir.prefix}")
 	private String ALIYUN_OSS_DIR_PREFIX;
 
-	@Autowired
+    @Resource
 	private OSSClient ossClient;
 
 	/**
@@ -53,10 +54,10 @@ public class OssServiceImpl implements OssService {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String dir = ALIYUN_OSS_DIR_PREFIX+sdf.format(new Date());
 		// 签名有效期
-		long expireEndTime = System.currentTimeMillis() + ALIYUN_OSS_EXPIRE * 1000;
+		long expireEndTime = System.currentTimeMillis() + ALIYUN_OSS_EXPIRE * 1000L;
 		Date expiration = new Date(expireEndTime);
 		// 文件大小
-		long maxSize = ALIYUN_OSS_MAX_SIZE * 1024 * 1024;
+		long maxSize = (long) ALIYUN_OSS_MAX_SIZE * 1024 * 1024;
 		// 回调
 		OssCallbackParam callback = new OssCallbackParam();
 		callback.setCallbackUrl(ALIYUN_OSS_CALLBACK);
@@ -69,10 +70,10 @@ public class OssServiceImpl implements OssService {
 			policyConds.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, 0, maxSize);
 			policyConds.addConditionItem(MatchMode.StartWith, PolicyConditions.COND_KEY, dir);
 			String postPolicy = ossClient.generatePostPolicy(expiration, policyConds);
-			byte[] binaryData = postPolicy.getBytes("utf-8");
+			byte[] binaryData = postPolicy.getBytes(StandardCharsets.UTF_8);
 			String policy = BinaryUtil.toBase64String(binaryData);
 			String signature = ossClient.calculatePostSignature(postPolicy);
-			String callbackData = BinaryUtil.toBase64String(JSONUtil.parse(callback).toString().getBytes("utf-8"));
+			String callbackData = BinaryUtil.toBase64String(JSONUtil.parse(callback).toString().getBytes(StandardCharsets.UTF_8));
 			// 返回结果
 			result.setAccessKeyId(ossClient.getCredentialsProvider().getCredentials().getAccessKeyId());
 			result.setPolicy(policy);

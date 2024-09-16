@@ -10,10 +10,10 @@ import com.macro.mall.model.UmsAdminRoleRelationExample;
 import com.macro.mall.model.UmsResource;
 import com.macro.mall.service.UmsAdminCacheService;
 import com.macro.mall.service.UmsAdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,13 +23,13 @@ import java.util.stream.Collectors;
  */
 @Service
 public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
-    @Autowired
+    @Resource
     private UmsAdminService adminService;
-    @Autowired
+    @Resource
     private RedisService redisService;
-    @Autowired
+    @Resource
     private UmsAdminRoleRelationMapper adminRoleRelationMapper;
-    @Autowired
+    @Resource
     private UmsAdminRoleRelationDao adminRoleRelationDao;
     @Value("${redis.database}")
     private String REDIS_DATABASE;

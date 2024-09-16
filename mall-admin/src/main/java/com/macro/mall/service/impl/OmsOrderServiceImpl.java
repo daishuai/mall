@@ -10,9 +10,9 @@ import com.macro.mall.model.OmsOrder;
 import com.macro.mall.model.OmsOrderExample;
 import com.macro.mall.model.OmsOrderOperateHistory;
 import com.macro.mall.service.OmsOrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,13 +23,13 @@ import java.util.stream.Collectors;
  */
 @Service
 public class OmsOrderServiceImpl implements OmsOrderService {
-    @Autowired
+    @Resource
     private OmsOrderMapper orderMapper;
-    @Autowired
+    @Resource
     private OmsOrderDao orderDao;
-    @Autowired
+    @Resource
     private OmsOrderOperateHistoryDao orderOperateHistoryDao;
-    @Autowired
+    @Resource
     private OmsOrderOperateHistoryMapper orderOperateHistoryMapper;
 
     @Override

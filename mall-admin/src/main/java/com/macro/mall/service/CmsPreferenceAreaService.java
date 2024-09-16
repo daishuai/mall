@@ -8,7 +8,7 @@ import java.util.List;
  * 优选专区管理Service
  * Created by macro on 2018/6/1.
  */
-public interface CmsPrefrenceAreaService {
+public interface CmsPreferenceAreaService {
     /**
      * 获取所有优选专区
      */

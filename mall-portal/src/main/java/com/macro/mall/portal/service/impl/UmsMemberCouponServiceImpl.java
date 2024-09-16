@@ -9,9 +9,9 @@ import com.macro.mall.portal.domain.CartPromotionItem;
 import com.macro.mall.portal.domain.SmsCouponHistoryDetail;
 import com.macro.mall.portal.service.UmsMemberCouponService;
 import com.macro.mall.portal.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,19 +25,19 @@ import java.util.stream.Collectors;
  */
 @Service
 public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
-    @Autowired
+    @Resource
     private UmsMemberService memberService;
-    @Autowired
+    @Resource
     private SmsCouponMapper couponMapper;
-    @Autowired
+    @Resource
     private SmsCouponHistoryMapper couponHistoryMapper;
-    @Autowired
+    @Resource
     private SmsCouponHistoryDao couponHistoryDao;
-    @Autowired
+    @Resource
     private SmsCouponProductRelationMapper couponProductRelationMapper;
-    @Autowired
+    @Resource
     private SmsCouponProductCategoryRelationMapper couponProductCategoryRelationMapper;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
     @Override
     public void add(Long couponId) {

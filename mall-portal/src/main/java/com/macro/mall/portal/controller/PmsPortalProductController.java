@@ -9,31 +9,27 @@ import com.macro.mall.portal.service.PmsPortalProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * 前台商品管理Controller
  * Created by macro on 2020/4/6.
  */
-@Controller
-@Api(tags = "PmsPortalProductController")
-@Tag(name = "PmsPortalProductController", description = "前台商品管理")
+@RestController
+@Api(tags = "前台商品管理")
 @RequestMapping("/product")
 public class PmsPortalProductController {
 
-    @Autowired
+    @Resource
     private PmsPortalProductService portalProductService;
 
     @ApiOperation(value = "综合搜索、筛选、排序")
     @ApiImplicitParam(name = "sort", value = "排序字段:0->按相关度；1->按新品；2->按销量；3->价格从低到高；4->价格从高到低",
             defaultValue = "0", allowableValues = "0,1,2,3,4", paramType = "query", dataType = "integer")
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/search")
     public CommonResult<CommonPage<PmsProduct>> search(@RequestParam(required = false) String keyword,
                                                        @RequestParam(required = false) Long brandId,
                                                        @RequestParam(required = false) Long productCategoryId,
@@ -45,16 +41,14 @@ public class PmsPortalProductController {
     }
 
     @ApiOperation("以树形结构获取所有商品分类")
-    @RequestMapping(value = "/categoryTreeList", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/categoryTreeList")
     public CommonResult<List<PmsProductCategoryNode>> categoryTreeList() {
         List<PmsProductCategoryNode> list = portalProductService.categoryTreeList();
         return CommonResult.success(list);
     }
 
     @ApiOperation("获取前台商品详情")
-    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/detail/{id}")
     public CommonResult<PmsPortalProductDetail> detail(@PathVariable Long id) {
         PmsPortalProductDetail productDetail = portalProductService.detail(id);
         return CommonResult.success(productDetail);

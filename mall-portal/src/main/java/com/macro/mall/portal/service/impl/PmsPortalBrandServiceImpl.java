@@ -9,9 +9,9 @@ import com.macro.mall.model.PmsProduct;
 import com.macro.mall.model.PmsProductExample;
 import com.macro.mall.portal.dao.HomeDao;
 import com.macro.mall.portal.service.PmsPortalBrandService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,11 +20,11 @@ import java.util.List;
  */
 @Service
 public class PmsPortalBrandServiceImpl implements PmsPortalBrandService {
-    @Autowired
+    @Resource
     private HomeDao homeDao;
-    @Autowired
+    @Resource
     private PmsBrandMapper brandMapper;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
 
     @Override

@@ -12,9 +12,9 @@ import com.macro.mall.model.*;
 import com.macro.mall.service.PmsProductCategoryService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,15 +24,15 @@ import java.util.List;
  */
 @Service
 public class PmsProductCategoryServiceImpl implements PmsProductCategoryService {
-    @Autowired
+    @Resource
     private PmsProductCategoryMapper productCategoryMapper;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private PmsProductCategoryAttributeRelationDao productCategoryAttributeRelationDao;
-    @Autowired
+    @Resource
     private PmsProductCategoryAttributeRelationMapper productCategoryAttributeRelationMapper;
-    @Autowired
+    @Resource
     private PmsProductCategoryDao productCategoryDao;
     @Override
     public int create(PmsProductCategoryParam pmsProductCategoryParam) {

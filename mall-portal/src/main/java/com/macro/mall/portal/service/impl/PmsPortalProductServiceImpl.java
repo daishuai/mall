@@ -10,9 +10,9 @@ import com.macro.mall.portal.domain.PmsPortalProductDetail;
 import com.macro.mall.portal.domain.PmsProductCategoryNode;
 import com.macro.mall.portal.service.PmsPortalProductService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,23 +22,23 @@ import java.util.stream.Collectors;
  */
 @Service
 public class PmsPortalProductServiceImpl implements PmsPortalProductService {
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private PmsProductCategoryMapper productCategoryMapper;
-    @Autowired
+    @Resource
     private PmsBrandMapper brandMapper;
-    @Autowired
+    @Resource
     private PmsProductAttributeMapper productAttributeMapper;
-    @Autowired
+    @Resource
     private PmsProductAttributeValueMapper productAttributeValueMapper;
-    @Autowired
+    @Resource
     private PmsSkuStockMapper skuStockMapper;
-    @Autowired
+    @Resource
     private PmsProductLadderMapper productLadderMapper;
-    @Autowired
+    @Resource
     private PmsProductFullReductionMapper productFullReductionMapper;
-    @Autowired
+    @Resource
     private PortalProductDao portalProductDao;
 
     @Override

@@ -9,9 +9,9 @@ import com.macro.mall.mapper.UmsRoleResourceRelationMapper;
 import com.macro.mall.model.*;
 import com.macro.mall.service.UmsAdminCacheService;
 import com.macro.mall.service.UmsRoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -21,15 +21,15 @@ import java.util.List;
  */
 @Service
 public class UmsRoleServiceImpl implements UmsRoleService {
-    @Autowired
+    @Resource
     private UmsRoleMapper roleMapper;
-    @Autowired
+    @Resource
     private UmsRoleMenuRelationMapper roleMenuRelationMapper;
-    @Autowired
+    @Resource
     private UmsRoleResourceRelationMapper roleResourceRelationMapper;
-    @Autowired
+    @Resource
     private UmsRoleDao roleDao;
-    @Autowired
+    @Resource
     private UmsAdminCacheService adminCacheService;
     @Override
     public int create(UmsRole role) {

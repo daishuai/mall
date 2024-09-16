@@ -9,9 +9,9 @@ import com.macro.mall.portal.domain.CartPromotionItem;
 import com.macro.mall.portal.domain.PromotionProduct;
 import com.macro.mall.portal.service.OmsPromotionService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -22,7 +22,7 @@ import java.util.*;
  */
 @Service
 public class OmsPromotionServiceImpl implements OmsPromotionService {
-    @Autowired
+    @Resource
     private PortalProductDao portalProductDao;
 
     @Override
@@ -142,15 +142,14 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
      * 获取满减促销消息
      */
     private String getFullReductionPromotionMessage(PmsProductFullReduction fullReduction) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("满减优惠：");
-        sb.append("满");
-        sb.append(fullReduction.getFullPrice());
-        sb.append("元，");
-        sb.append("减");
-        sb.append(fullReduction.getReducePrice());
-        sb.append("元");
-        return sb.toString();
+        String sb = "满减优惠：" +
+                "满" +
+                fullReduction.getFullPrice() +
+                "元，" +
+                "减" +
+                fullReduction.getReducePrice() +
+                "元";
+        return sb;
     }
 
     /**
@@ -192,15 +191,14 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
      * 获取打折优惠的促销信息
      */
     private String getLadderPromotionMessage(PmsProductLadder ladder) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("打折优惠：");
-        sb.append("满");
-        sb.append(ladder.getCount());
-        sb.append("件，");
-        sb.append("打");
-        sb.append(ladder.getDiscount().multiply(new BigDecimal(10)));
-        sb.append("折");
-        return sb.toString();
+        String sb = "打折优惠：" +
+                "满" +
+                ladder.getCount() +
+                "件，" +
+                "打" +
+                ladder.getDiscount().multiply(new BigDecimal(10)) +
+                "折";
+        return sb;
     }
 
     /**

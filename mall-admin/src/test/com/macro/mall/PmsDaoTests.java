@@ -22,9 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class PmsDaoTests {
-    @Autowired
+    @Resource
     private PmsMemberPriceDao memberPriceDao;
-    @Autowired
+    @Resource
     private PmsProductDao productDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsDaoTests.class);
     @Test

@@ -6,9 +6,9 @@ import com.macro.mall.mapper.SmsCouponHistoryMapper;
 import com.macro.mall.model.SmsCouponHistory;
 import com.macro.mall.model.SmsCouponHistoryExample;
 import com.macro.mall.service.SmsCouponHistoryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Service
 public class SmsCouponHistoryServiceImpl implements SmsCouponHistoryService {
-    @Autowired
+    @Resource
     private SmsCouponHistoryMapper historyMapper;
     @Override
     public List<SmsCouponHistory> list(Long couponId, Integer useStatus, String orderSn, Integer pageSize, Integer pageNum) {

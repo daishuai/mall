@@ -9,10 +9,10 @@ import com.macro.mall.portal.domain.HomeContentResult;
 import com.macro.mall.portal.domain.HomeFlashPromotion;
 import com.macro.mall.portal.service.HomeService;
 import com.macro.mall.portal.util.DateUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -22,19 +22,19 @@ import java.util.List;
  */
 @Service
 public class HomeServiceImpl implements HomeService {
-    @Autowired
+    @Resource
     private SmsHomeAdvertiseMapper advertiseMapper;
-    @Autowired
+    @Resource
     private HomeDao homeDao;
-    @Autowired
+    @Resource
     private SmsFlashPromotionMapper flashPromotionMapper;
-    @Autowired
+    @Resource
     private SmsFlashPromotionSessionMapper promotionSessionMapper;
-    @Autowired
+    @Resource
     private PmsProductMapper productMapper;
-    @Autowired
+    @Resource
     private PmsProductCategoryMapper productCategoryMapper;
-    @Autowired
+    @Resource
     private CmsSubjectMapper subjectMapper;
 
     @Override
