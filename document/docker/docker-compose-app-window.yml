@@ -6,8 +6,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /opt/docker/app/mall-admin/logs:/var/logs
-      - /etc/localtime:/etc/localtime
+      - E:\docker/app/mall-admin/logs:/var/logs
     environment:
       - 'TZ="Asia/Shanghai"'
     external_links:
@@ -18,8 +17,7 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - /opt/docker/app/mall-search/logs:/var/logs
-      - /etc/localtime:/etc/localtime
+      - E:\docker/app/mall-search/logs:/var/logs
     environment:
       - 'TZ="Asia/Shanghai"'
     external_links:
@@ -31,8 +29,7 @@ services:
     ports:
       - "8085:8085"
     volumes:
-      - /opt/docker/app/mall-portal/logs:/var/logs
-      - /etc/localtime:/etc/localtime
+      - E:\docker/app/mall-portal/logs:/var/logs
     environment:
       - 'TZ="Asia/Shanghai"'
     external_links:

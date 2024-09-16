@@ -4,7 +4,7 @@ group_name='mall'
 # 定义应用名称
 app_name='mall-admin'
 # 定义应用版本
-app_version='1.0-SNAPSHOT'
+app_version='1.0.0-RELEASE'
 # 定义应用环境
 profile_active='prod'
 echo '----copy jar----'
