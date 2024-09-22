@@ -94,7 +94,7 @@ services:
     container_name: minio
     command: server /data --console-address ":9001" #指定数据目录及console运行端口启动
     volumes:
-      - E:\docker/minio/data:/data #数据目录挂载
+      - E:\docker/minio/data:/mnt/data #数据目录挂载
     environment:
       - "MINIO_ROOT_USER=minioadmin"
       - "MINIO_ROOT_PASSWORD=minioadmin"
